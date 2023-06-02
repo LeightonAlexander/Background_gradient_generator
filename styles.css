@@ -2,32 +2,39 @@
     box-sizing: border-box;
 }
 
+#main-content{
+    background-image: linear-gradient(to right, aquamarine, yellow);
+}
+
 header{
     text-align: center;
     font-size: 30px;
     padding-top: 15%;
 }
 
-.body-contain{
+.container{
     text-align: center;
 }
 
-#pallete-1{
+#pallete-container1{
     float: left;
     width: 10%;
     margin-left: 38%;
     margin-right: 4%;
     border: 5px  solid cornsilk;
+    border-radius: 15px;
 }
 
-#pallete-2{
+#pallete-container2{
     float: left;
     width: 10%;
     border: 5px  solid cornsilk;
+    border-radius: 15px;
 }
 
 #sub-text{
     padding-top: 5%;
+    text-align: center;
     font-size: 30px;
 }
 
