@@ -9,7 +9,7 @@
     <main>
         <script>
             function pickColor(elementId) {
-                // prompts user to enter a color and sets the value to the var of colorInput
+                // prompts user to enter a color and gives the value to the var of colorInput
                 let colorInput = prompt("Please enter a color:");
 
                 // sets the bg color of the element with the elementID provided in the
@@ -21,14 +21,25 @@
             // going from left to right.
             function bgChange() {
                 // Get the background color of the "pallete-1" element
-                let palColourOne = document.getElementById("pallete-1").style.backgroundColor;
+                let palColourOne = document.getElementById("pallete-container1").style.backgroundColor;
 
                 // Get the background color of the "pallete-2" element
-                let palColourTwo = document.getElementById("pallete-2").style.backgroundColor;
+                let palColourTwo = document.getElementById("pallete-container2").style.backgroundColor;
 
                 // Set the background image of the "main-content" element to a linear 
                 // gradient that blends the two colors
                 document.getElementById("main-content").style.backgroundImage = `linear-gradient(to right, ${palColourOne}, ${palColourTwo}`;
+            }
+
+            // function that changes the text displayed within pallette's p element when the user
+            // hovers the mouse over the text
+            function mOver(obj) {
+                obj.innerHTML = "Change Color";
+            }
+            // event listner that changes the text displayed within pallette's p element back to the original text
+            // when the user moves the mouse away from the element
+            function mOut(obj) {
+                obj.innerHTML = "click me!";    
             }
         </script>
 
@@ -36,24 +47,20 @@
             <h1 id="heading">Background Gradient Generator</h1>
         </header>
 
-        <div class="body-contain">
-            <div id="pallete-contain">
-                <div id="pallete-1" onclick="pickColor('pallete-1')">
-                    <p>click me!</p>
+        <div class="container">
+            <div id="pallete-container1">
+                <div id="pallete-1" onclick="pickColor('pallete-container1')">
+                    <p onmouseout="mOut(this)" onmouseover="mOver(this)">click me!</p>
                 </div>
-                <div id="pallete-2" onclick="pickColor('pallete-2')">
-                    <p>click me!</p>
+            </div>
+            <div id="pallete-container2">
+                <div id="pallete-2" onclick="pickColor('pallete-container2')">
+                    <p  onmouseover="mOver(this)" onmouseout="mOut(this)">click me!</p>
                 </div>
+            </div>
             </div>
             <div id="sub-text">
                 <button onclick="bgChange()">Combine colours</button>
-                <p>
-                    Current CSS background:
-                    <p id="current-bg"></p>
-                </p>
-            </div>
-            <div id="css-display">
-                <p>Linear gradient (left to right, rgb(),rgb())</p>
             </div>
         </div>
     </main>
